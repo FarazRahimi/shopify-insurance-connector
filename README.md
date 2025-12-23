@@ -1,18 +1,20 @@
-# Shopify Insurance & Order Sync Service
+# Vertex Electronics | Order Sync & Insurance Middleware
 
-## Overview
-This microservice acts as a middleware between a **Shopify Store (Vertex Electronics)** and internal backend systems. It listens for real-time `orders/create` webhooks, parses transaction data, and prepares high-value shipments for insurance processing.
+## Project Overview
+This middleware microservice is designed for Vertex Electronics, a high-volume consumer tech retailer. It serves as the critical bridge between the Shopify e-commerce platform and internal Shipping Insurance Manifest systems.
+
+The service listens for real-time `orders/create` events via Webhooks, parses sensitive customer and transaction data, and formats payloads for immediate insurance coverage on high-value shipments (laptops, monitors, peripherals).
 
 ## System Architecture
 
 ```mermaid
 graph LR
-    A[Shopify Store] -- New Order Event --> B(Webhook)
-    B -- JSON Payload --> C{Ngrok Tunnel}
-    C -- Secure Forwarding --> D[Python Flask Service]
-    D -- Extract Data --> E[Console Logs]
+    A[Shopify Store - Vertex Electronics] -- Webhook Event (JSON) --> B(Internet Gateway)
+    B -- Secure POST --> C{AWS EC2 / Ngrok Middleware}
+    C -- 1. HMAC Verification --> D[Python Flask Service]
+    D -- 2. Parse & Extract --> E[Shipping Manifest Log / Database]
     D -- 200 OK --> A
     
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style C fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
