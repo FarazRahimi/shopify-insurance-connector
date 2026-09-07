@@ -1,7 +1,7 @@
 # Vertex Electronics | Order Sync & Insurance Middleware
 
 ## Project Overview
-This middleware microservice is designed for Vertex Electronics, a high-volume consumer tech retailer. It serves as the critical bridge between the Shopify e-commerce platform and internal Shipping Insurance Manifest systems.
+This middleware microservice is designed for Vertex Electronics(A fictional name is used here to protect client confidentiality under NDA), a high-volume consumer tech retailer. It serves as the critical bridge between the Shopify e-commerce platform and internal Shipping Insurance Manifest systems.
 
 The service listens for real-time `orders/create` events via Webhooks, parses sensitive customer and transaction data, and formats payloads for immediate insurance coverage on high-value shipments (laptops, monitors, peripherals).
 
